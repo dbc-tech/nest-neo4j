@@ -7,6 +7,13 @@
 
 > Neo4j integration for Nest
 
+Forked from https://github.com/adam-cowley/nest-neo4j
+
+Improvements:
+
+- Targets Nest `v9.0` through peer dependencies
+- Support `disableLosslessIntegers` configuration
+
 ## Description
 
 This repository provides [Neo4j](https://www.neo4j.com) integration for [Nest](http://nestjs.com/).
@@ -14,7 +21,7 @@ This repository provides [Neo4j](https://www.neo4j.com) integration for [Nest](h
 ## Installation
 
 ```
-$ npm i --save nest-neo4j
+$ npm install @dbc-tech/nest-neo4j
 ```
 
 ## Quick Start
@@ -34,7 +41,8 @@ import { Neo4jModule } from 'nest-neo4j'
       host: 'localhost',
       port: 7687,
       username: 'neo4j',
-      password: 'neo'
+      password: 'neo',
+      disableLosslessIntegers: false,
     })
   ],
   controllers: [AppController],
