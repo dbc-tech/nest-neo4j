@@ -1,4 +1,3 @@
-import { DtoConstructor, plainToDto } from './plain-to-dto';
 import {
   Node,
   Relationship,
@@ -6,6 +5,7 @@ import {
   isNode,
   isRelationship,
 } from 'neo4j-driver-core';
+import { DtoConstructor, plainToDto } from './plain-to-dto';
 
 export function map<T>(
   record: Record,

@@ -3,6 +3,7 @@ import neo4j, { Driver, Result, int, Transaction } from 'neo4j-driver';
 import TransactionImpl from 'neo4j-driver-core/lib/transaction';
 import { Neo4jConfig } from './interfaces/neo4j-config.interface';
 import { NEO4J_OPTIONS, NEO4J_DRIVER } from './neo4j.constants';
+import { transaction } from './utils/transaction-utils';
 
 @Injectable()
 export class Neo4jService implements OnApplicationShutdown {
@@ -47,6 +48,16 @@ export class Neo4jService implements OnApplicationShutdown {
       database: database || this.config.database,
       defaultAccessMode: neo4j.session.WRITE,
     });
+  }
+
+  transaction<Result>(
+    uow: (c: Transaction) => Promise<Result>,
+    database?: string,
+    onError?: (e: Error) => Promise<void>,
+    throwOnError = true,
+  ): Promise<Result> {
+    const session = this.getWriteSession(database);
+    return transaction(session, uow, onError, throwOnError);
   }
 
   read(

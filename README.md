@@ -13,7 +13,8 @@ Improvements:
 
 - Targets Nest `v9.0` through peer dependencies
 - Support `disableLosslessIntegers` configuration
-- `map<T>` and `mapArray<T>` utils for mapping results onto DTOs.
+- `map<T>` and `mapArray<T>` utils for mapping results onto DTOs
+- Transaction utils
 
 ## Description
 
