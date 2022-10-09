@@ -23,7 +23,7 @@
   "homepage": "https://github.com/adam-cowley/nest-neo4j#readme",
   "dependencies": {
     "class-transformer": "^0.5.1",
-    "neo4j-driver": "^4.4.7",
+    "neo4j-driver": "^5.0.1",
     "reflect-metadata": "^0.1.13"
   },
   "peerDependencies": {
