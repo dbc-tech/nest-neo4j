@@ -8,7 +8,5 @@ export const createDriver = async (config: Neo4jConfig) => {
     { disableLosslessIntegers: config.disableLosslessIntegers || false },
   );
 
-  await driver.verifyConnectivity();
-
   return driver;
 };
