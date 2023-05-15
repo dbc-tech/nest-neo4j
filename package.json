@@ -1,6 +1,6 @@
 {
   "name": "@dbc-tech/nest-neo4j",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.js",
