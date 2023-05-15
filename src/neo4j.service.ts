@@ -76,6 +76,26 @@ export class Neo4jService implements OnApplicationShutdown  {
         return res
     }
 
+    transaction = async (
+        run?: (_: Transaction) => Promise<void>,
+        onCommitError?: (error: Error) => Promise<void>,
+      ) => {
+        const session = this.getWriteSession()
+        const tx = await session.beginTransaction()
+        try {
+          await run(tx)
+          try {
+            await tx.commit()
+          } catch (error) {
+            if (onCommitError) await onCommitError(error)
+            throw error // roll back
+          }
+        } finally {
+          await tx.close() // rolls back if not yet committed
+          await session.close()
+        }
+      }
+    
     onApplicationShutdown() {
         return this.driver.close()
     }
