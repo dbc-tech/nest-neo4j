@@ -20,7 +20,7 @@ export class Neo4jModule {
                 {
                     provide: NEO4J_DRIVER,
                     inject: [ NEO4J_OPTIONS ],
-                    useFactory: async (connection: Neo4jConnection) => createDriver(connection),
+                    useFactory: (connection: Neo4jConnection) => createDriver(connection),
                 },
                 Neo4jService,
             ],
@@ -46,7 +46,7 @@ export class Neo4jModule {
                 {
                     provide: NEO4J_DRIVER,
                     inject: [ NEO4J_OPTIONS ],
-                    useFactory: async (connection: Neo4jConnection) => createDriver(connection),
+                    useFactory: (connection: Neo4jConnection) => createDriver(connection),
                 },
                 Neo4jService,
             ],
@@ -94,7 +94,7 @@ export class Neo4jModule {
                 {
                     provide: NEO4J_DRIVER,
                     inject: [ NEO4J_OPTIONS ],
-                    useFactory: async (connection: Neo4jConnection) => createDriver(connection),
+                    useFactory: (connection: Neo4jConnection) => createDriver(connection),
                 },
                 Neo4jService,
             ],
